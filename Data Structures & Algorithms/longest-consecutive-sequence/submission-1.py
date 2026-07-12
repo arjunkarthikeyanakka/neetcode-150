@@ -19,6 +19,8 @@ class Solution:
         # return max(ans,curr)
 
         # optimal approach, T = O(n), S=O(n)
+        # idea is to maintain a set to see if there is no predecessor (nums[i]-1) in nums, so we can start 
+        # our sequence from there and a while loop runs to get length of our consecutive inc subseq.
         vis=set(nums)
         curr,ans=0,0
         for i in range(n):
