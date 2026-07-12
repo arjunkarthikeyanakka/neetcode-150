@@ -13,7 +13,7 @@ class Solution:
         #         if l[i]!=p[i]:
         #             return False
         #     return True
-        # 1. bruteforce T = O(m^2*n) , S = O(m)
+        # 1. bruteforce T = O(m^2*n) , S = O(m*n)
         # n=len(strs)
         # ans=[]
         # vis=set()
@@ -28,7 +28,9 @@ class Solution:
         #         ans.append(curr)
         # return ans
 
-        # 2. hashtable
+        # 2. hashtable T = O(m*n), S = O(m) 
+        # need to use a tuple as dictionary key as only immutable ds can be used as dict keys
+        # since l's size is fixed (26), so we have total memory to O(m) where m is len(strs)
         def helper(s):
             l=[0]*26
             for i in range(len(s)):
