@@ -1,5 +1,7 @@
 class Solution:
     def maxArea(self, nums: List[int]) -> int:
+        # optimal, T = O(n), S = O(1)
+        # 2 pointer approach
         n=len(nums)
         l,r=0,n-1
         ans=0

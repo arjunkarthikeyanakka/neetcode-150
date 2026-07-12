@@ -1,5 +1,16 @@
 class Solution:
     def trap(self, nums: List[int]) -> int:
+        # brute force : T = O(NlogN), S = O(N)
+        '''
+            the idea is to start at a peak and end at a peak, so we have proper boundaries
+            then we change the nums array if in those boundaries the max occurs only once, we normalize it to second max
+            then we traverse from start to end and using a stack we sum all elements and subtract from bucket height to get water vol
+            if the stack is non empty even after reaching end, that means the left wall height is higher than anything that comes after it
+            so you can simply do a diff of len stack * left wall height - sum of stack elems. 
+            
+            But there is even a better way, embarrassingly there is no need to optimize this far, we can just use 2 pointers.
+        '''
+        '''
         n=len(nums)
         if n<3:
             return 0 
@@ -55,4 +66,27 @@ class Solution:
                     break
                 ans+=(first-el)
                     
+        return ans
+        '''
+        
+        # 2. optimal : T = O(N), S = O(1)
+        # 2 pointer approach. No need to check for start, end, walls and everything is taken care of the max left and right variables
+        # you choose to focus on what side each time.
+        n=len(nums)
+        if n<3:
+            return 0 
+        ans=0
+        l,r=0,n-1
+        ml,mr=nums[0],nums[-1]
+        while l<r:
+            if nums[l]<nums[r]:
+                # index l is the wall right now, because that is the min of both
+                ml=max(ml,nums[l])
+                ans+=ml-nums[l]
+                l+=1
+            else:
+                # index r is the wall as it is <=l
+                mr=max(mr,nums[r])
+                ans+=mr-nums[r]
+                r-=1
         return ans
