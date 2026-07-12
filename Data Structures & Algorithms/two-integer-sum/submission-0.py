@@ -8,7 +8,7 @@ class Solution:
         #         if nums[i]+nums[j]==target:
         #             return [i,j]
         
-        # 2. hashmap T = O(n), S = O(1)
+        # 2. hashmap T = O(n), S = O(n)
         d=defaultdict(int)
         for idx,i in enumerate(nums):
             if d.get(i,-1)+1:
