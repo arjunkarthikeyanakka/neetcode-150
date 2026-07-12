@@ -1,5 +1,6 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        # T = O(n^2), S = O(n)
         # row check
         for i in range(9):
             c=0
