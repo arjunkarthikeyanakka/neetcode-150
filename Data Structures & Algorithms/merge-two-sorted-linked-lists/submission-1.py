@@ -6,6 +6,7 @@
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        # T = O(N) , S = O(1) 
         h1,h2=list1,list2
         th=ListNode(0,None)
         h=th

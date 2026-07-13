@@ -6,6 +6,7 @@
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # T = O(N) , S = O(1)
         if not head or not head.next:
             return head
         curr,prev=head,None

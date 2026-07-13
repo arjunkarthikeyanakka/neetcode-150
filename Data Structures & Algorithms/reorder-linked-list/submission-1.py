@@ -4,9 +4,21 @@
 #         self.val = val
 #         self.next = next
 
+'''
+Explanation : 
+T = O(N),  S = O(1)
+first check the length of the list so that you can reverse
+the second half and then rewire first half and second half 
+nodes by running two pointers.
+Better way is to run slow and fast pointers this will save 
+you a full list traversal. Code is not so readable right now
+but the idea is clearly explained, you wrote this within 30 
+minutes without any help or recollection of older submissions 
+so you can do it again!
+'''
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
-        n=0
+	    n=0
         th=head
         while th:
             n+=1
