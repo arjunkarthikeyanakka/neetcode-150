@@ -31,6 +31,14 @@ class Solution:
             y=y.next
         return h.next
         '''
+
+        # okay so this technique is called Three-Step In-Place Interweaving Trick
+        # basically, you will create copies of each node right beside it, so its easy 
+        # for you to stitch the random nodes of the copied nodes as they will be right beside 
+        # the actual random nodes, you dont have to search for them. Only special case is
+        # random being a null. 
+        # T = O(n), S = O(1) auxiliary space. This is the most optimal solution
+        # considering both time and space wise.
         if head is None:
             return head
         th=Node(0)
@@ -55,18 +63,3 @@ class Solution:
             temp=nn
         
         return th
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
